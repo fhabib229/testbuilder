@@ -50,7 +50,7 @@ describe('Diner\'s Club', function() {
   });
 
   it('has a prefix of 39 and a length of 14', function() {
-    expect(detectNetwork('3934567890123')).to.equal('Diner\'s Club'); 
+    expect(detectNetwork('39345678901234')).to.equal('Diner\'s Club'); 
   });
 });
 
@@ -135,7 +135,7 @@ describe('Discover', function() {
   });
 
   it('has a prefix of 648 and a length of 16', function() {
-    expect(detectNetwork('648123457890123')).to.equal('Discover');
+    expect(detectNetwork('6481234567890123')).to.equal('Discover');
   });
 
   it('has a prefix of 649 and a length of 16', function() {
@@ -159,7 +159,7 @@ describe('Discover', function() {
   });
 
   it('has a prefix of 648 and a length of 19', function() {
-    expect(detectNetwork('648123457890123456')).to.equal('Discover');
+    expect(detectNetwork('6481234567890123456')).to.equal('Discover');
   });
 
   it('has a prefix of 649 and a length of 19', function() {
@@ -187,7 +187,7 @@ describe('Maestro', function() {
   });
 
   it('has a prefix of 5018 and a length of 14', function() {
-    expect(detectNetwork('50181234567890')).to.equal.('Maestro');
+    expect(detectNetwork('50181234567890')).to.equal('Maestro');
   });
 
   it('has a prefix of 5018 and a length of 15', function() {
