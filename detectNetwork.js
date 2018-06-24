@@ -15,13 +15,20 @@ var detectNetwork = function(cardNumber) {
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   //Assumption: if cardNumber is not a credit card number, prompt the user to enter a credit card number
 
-  if ((cardNumber.startsWith('38') || cardNumber.startsWith('39')) && cardNumber.length === 14) {
-  	return 'Diner\'s Club';
-  } else if (cardNumber.startsWith('34') || cardNumber.startsWith('37') && cardNumber.length === 15) {
-  	return 'American Express';
-  } else {
-  	return 'Not a valid credit card number';
-  }
+  switch(cardNumber) {
+  	case ((cardNumber.startsWith('38') || cardNumber.startsWith('39')) && cardNumber.length === 14) :
+  		return 'Diner\'s Club';
+  		break;
+  	case (cardNumber.startsWith('34') || cardNumber.startsWith('37') && cardNumber.length === 15) :
+  		return 'American Express';
+  		break;
+		case (cardNumber.startsWith('4') && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) :
+			return 'Visa';
+			break;
+		case ((cardNumber.startsWith('51') || cardNumber.startsWith('52') || cardNumber.startsWith('53') || cardNumber.startswith('54') || cardNumber.startsWith('55')) && cardNumber.length === 16):
+			return 'MasterCard';
+			break;
+	}
 };
 
 
