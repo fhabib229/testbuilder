@@ -85,6 +85,7 @@ describe('Visa', function() {
 describe('MasterCard', function() {
   var expect = chai.expect;
  
+  /*
   it('has a prefix of 51 and a length of 16', function() {
     expect(detectNetwork('5112345678901234')).to.equal('MasterCard');
   });
@@ -103,8 +104,16 @@ describe('MasterCard', function() {
  
   it('has a prefix of 55 and a length of 16', function() {
     expect(detectNetwork('5512345678901234')).to.equal('MasterCard');
-  })
- 
+  });
+  */
+
+  for (var prefix = 51; prefix <= 55; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '12345678901234')).to.equal('MasterCard');
+      });
+    })(prefix)
+  }
 });
 
 describe('Discover', function() {
@@ -117,7 +126,7 @@ describe('Discover', function() {
   it('has a prefix of 6011 and a length of 19', function() {
     expect(detectNetwork('6011123456789012345')).to.equal('Discover');
   });
-
+  /*
   it('has a prefix of 644 and a length of 16', function() {
     expect(detectNetwork('6441234567890123')).to.equal('Discover');
   });
@@ -165,6 +174,18 @@ describe('Discover', function() {
   it('has a prefix of 649 and a length of 19', function() {
     expect(detectNetwork('6491234567890123456')).to.equal('Discover');
   });
+  */
+
+  for (prefix = 644; prefix <= 649; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '1234567890123')).to.equal('Discover');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        expect(detectNetwork(prefix + '1234567890123456')).to.equal('Discover');
+      });
+    })(prefix)
+  }
 
   it('has a prefix of 65 and a length of 16', function() {
     expect(detectNetwork('6512345678901234')).to.equal('Discover');
