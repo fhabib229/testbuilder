@@ -15,7 +15,7 @@ var detectNetwork = function(cardNumber) {
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   //Assumption: if cardNumber is not a credit card number, prompt the user to enter a credit card number
 
-  switch(cardNumber) {
+  switch(true) {
   	case ((cardNumber.startsWith('38') || cardNumber.startsWith('39')) && cardNumber.length === 14) :
   		return 'Diner\'s Club';
   		break;
