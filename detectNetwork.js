@@ -25,7 +25,7 @@ var detectNetwork = function(cardNumber) {
 		case (cardNumber.startsWith('4') && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) :
 			return 'Visa';
 			break;
-		case ((cardNumber.startsWith('51') || cardNumber.startsWith('52') || cardNumber.startsWith('53') || cardNumber.startswith('54') || cardNumber.startsWith('55')) && cardNumber.length === 16):
+		case ((cardNumber.startsWith('51') || cardNumber.startsWith('52') || cardNumber.startsWith('53') || cardNumber.startsWith('54') || cardNumber.startsWith('55')) && cardNumber.length === 16):
 			return 'MasterCard';
 			break;
 	}
