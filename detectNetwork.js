@@ -22,6 +22,9 @@ var detectNetwork = function(cardNumber) {
   	case (cardNumber.startsWith('34') || cardNumber.startsWith('37') && cardNumber.length === 15) :
   		return 'American Express';
   		break;
+  	case((cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19) && (cardNumber.substring(0,4) === "4903" || cardNumber.substring(0,4) === "4905" || cardNumber.substring(0,4) === "4911" || cardNumber.substring(0,4) === "4936" || cardNumber.substring(0,6) === "564182" || cardNumber.substring(0,6) === "633110" ||cardNumber.substring(0,4) === "6333" || cardNumber.substring(0,4) === "6759")):
+  		return 'Switch';
+  		break;
 		case (cardNumber.startsWith('4') && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) :
 			return 'Visa';
 			break;
@@ -34,7 +37,12 @@ var detectNetwork = function(cardNumber) {
 		case((cardNumber.startsWith('5018') || cardNumber.startsWith('5020') || cardNumber.startsWith('5038') || cardNumber.startsWith('6304')) && (cardNumber.length === 12 || cardNumber.length === 13 || cardNumber.length === 14 || cardNumber.length === 15 || cardNumber.length === 16 || cardNumber.length === 17 || cardNumber.length === 18 || cardNumber.length === 19)):
 			return 'Maestro';
 			break;
+		case(16 <= cardNumber.length <= 19 && (622126 <= Number(cardNumber.substring(0, 6)) <= 622925 || 624 <= Number(cardNumber.substring(0, 3)) <= 626 || 6282 <= Number(cardNumber.substring(0, 4)) <= 6288)):
+			return 'China UnionPay';
+			break;
 	}
+
+	return 'Credit Card not supported';
 };
 
 
